@@ -3,14 +3,14 @@ import { should } from 'chai';
 import path from 'path';
 import tmp from 'tmp';
 
-import { TemplateManager } from '../src/index';
+import { Template } from '../src/index';
 
 interface Data {
     key1: string;
     key2: string;
 }
 
-const subject = new TemplateManager<Data>();
+const subject = new Template<Data>();
 
 should();
 
@@ -27,7 +27,7 @@ describe('TemplateManager', () => {
 
             fs.writeFileSync(source, template);
 
-            const target = path.join(tmpobj.name, 'target');
+            const target = path.join(tmpobj.name, 'somesubdir', 'target');
             const data = { key1: 'value1', key2: 'value2' };
 
             subject.create(source, target, data);

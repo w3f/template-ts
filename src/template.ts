@@ -2,13 +2,13 @@ import fs from 'fs-extra';
 import Handlebars from 'handlebars';
 import path from 'path';
 
-import { Template } from './types';
+import { TemplateManager } from './types';
 
 Handlebars.registerHelper('raw', function(options) {
     return options.fn();
 });
 
-export class TemplateManager<T> implements Template<T> {
+export class Template<T> implements TemplateManager<T> {
     create(source: string, target: string, data: T): void {
         const sourceTpl = fs.readFileSync(source).toString();
         const template = Handlebars.compile(sourceTpl);
