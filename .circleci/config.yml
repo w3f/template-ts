@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: node:12.16.1-alpine3.11
+      - image: web3f/node:v0.1.0
     steps:
       - checkout
       - run: yarn
@@ -14,16 +14,16 @@ jobs:
 
   publishPackage:
     docker:
-      - image: node:12.16.1-alpine3.11
+      - image: web3f/node:v0.1.0
     steps:
       - checkout
-
       - run:
           name: Publish package
           command: |
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
             yarn
             yarn publish --access public
+
 
 workflows:
   version: 2
