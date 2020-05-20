@@ -5,12 +5,7 @@ import tmp from 'tmp';
 
 import { Template } from '../src/index';
 
-interface Data {
-    key1: string;
-    key2: string;
-}
-
-const subject = new Template<Data>();
+const subject = new Template();
 
 should();
 
