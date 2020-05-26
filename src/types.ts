@@ -1,5 +1,5 @@
 export interface TemplateData {
-    [key: string]: string;
+    [key: string]: string | number;
 }
 
 export interface TemplateManager {
